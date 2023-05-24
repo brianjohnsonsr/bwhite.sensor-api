@@ -21,7 +21,7 @@ export async function saveMeasurement(input: Measurement) {
 
 export async function sendAlertEmail(measurement: number) {
     const message: EmailMessage = {
-        senderAddress: 'DoNotReply@76e01699-3a30-4045-ad9e-7c997fe50d4c.azurecomm.net',
+        senderAddress: process.env.AZURE_COMMS_FROM_EMAIL,
         content: {
             subject: 'Water Pressure Below Threshold',
             plainText: `Water pressure is low; please take action.\nMeasurement: ${measurement} psi`,
@@ -29,8 +29,8 @@ export async function sendAlertEmail(measurement: number) {
         recipients: {
             to: [
                 {
-                    address: 'brian.sr.johnson@gmail.com',
-                    displayName: 'Brian Johnson',
+                    address: process.env.AZURE_COMMS_TO_EMAIL,
+                    displayName: process.env.AZURE_COMMS_TO_NAME,
                 },
             ],
         },
@@ -44,7 +44,7 @@ export async function sendAlertEmail(measurement: number) {
 
 export async function sendAllIsGoodEmail(measurement: number) {
     const message: EmailMessage = {
-        senderAddress: 'DoNotReply@76e01699-3a30-4045-ad9e-7c997fe50d4c.azurecomm.net',
+        senderAddress: process.env.AZURE_COMMS_FROM_EMAIL,
         content: {
             subject: 'Water Pressure Normal',
             plainText: `Water pressure is back to normal.\nMeasurement: ${measurement} psi`,
@@ -52,8 +52,8 @@ export async function sendAllIsGoodEmail(measurement: number) {
         recipients: {
             to: [
                 {
-                    address: 'brian.sr.johnson@gmail.com',
-                    displayName: 'Brian Johnson',
+                    address: process.env.AZURE_COMMS_TO_EMAIL,
+                    displayName: process.env.AZURE_COMMS_TO_NAME,
                 },
             ],
         },

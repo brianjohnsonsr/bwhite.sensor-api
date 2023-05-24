@@ -1,6 +1,6 @@
 import { index, prop, getModelForClass } from '@typegoose/typegoose';
 
-export type NotificationType = 'BACK_TO_NORMAL'|'BELOW_THRESHOLD';
+export type NotificationType = 'BACK_TO_NORMAL'|'BELOW_THRESHOLD'|'SENSOR_OFFLINE';
 
 @index({ createdAt: 1 })
 export class Notification {

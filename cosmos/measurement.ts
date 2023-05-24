@@ -12,6 +12,12 @@ export class Measurement {
 
   @prop({ required: true })
   public measurement: number;
+
+  @prop()
+  public rssi: number
+
+  public createdAt: Date;
+  public updatedAt: Date;
 }
 
 export const MeasurementModel = getModelForClass(Measurement, { schemaOptions: { timestamps: true } });
